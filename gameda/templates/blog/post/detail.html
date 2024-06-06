@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="container background-image">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>{{ post.title }}</h1>
+                <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+                <div class="image">
+                    {% if post.photo %}
+                        <img src="{{ post.photo.url }}" alt="{{ post.title }}" style="width: 50%; display: block; margin: 0 auto;">
+                    {% endif %}
+                </div>
+                <div class="content" style="text-align: center; border: 2px solid #ccc; padding: 20px; font-weight: bold; font-size: 20px;">
+                    {{ post.body|safe }}
+                </div>
+                <div class="video">
+                    {% if post.video_url %}
+                        <iframe width="560" height="315" src="{{ post.video_url }}" frameborder="0" allowfullscreen></iframe>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

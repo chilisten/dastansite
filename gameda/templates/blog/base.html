@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Добро пожаловать на Gameda!{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <style>
+        body {
+            background-color: purple;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: purple;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 10px;
+        }
+        .logo img {
+            max-width: 100px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+        .actions {
+            margin-top: 10px;
+        }
+        .button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #f2f2f2;
+        }
+        .combined-section {
+            background-image: url('https://baldezh.top/uploads/posts/2022-08/1659962312_9-funart-pro-p-fon-dlya-igri-piksel-art-krasivo-11.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .combined-section h1,
+        .combined-section h2 {
+            margin: 10px 0;
+        }
+        .supported-by {
+            text-align: center;
+            font-family: 'Pixel';
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> <img src="https://static.thenounproject.com/png/6453002-84.png" alt="Logo"> </div>
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Обзоры</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="actions">
+            <!-- Добавленная ссылка с якорем к main -->
+            <a href="#main-section" class="button" style="background-color: purple; color: white;">Последние Новости</a>
+        </div>
+    </header>
+
+    <section class="combined-section">
+        <h1>Добро пожаловать на Gameda!</h1>
+        <p>Последние новости и обзоры видеоигр</p>
+        <h2>Твои развлечения</h2>
+        <p>Здесь вы узнаете все о новинках в индустрии гейминга.</p>
+    </section>
+
+    <main id="main-section">
+        {% block content %}
+        <!-- Содержимое main будет загружаться из админки Django -->
+        {% endblock %}
+    </main>
+
+    <footer>
+    <p style="text-align: center;">&hearts; Гляди что упускаешь &hearts;</p>
+    <div class="gallery">
+        <div class="gallery-item"><img src="{% static 'image/kibersport.jpg' %}" alt="Gallery Image 1"></div>
+        <div class="gallery-item"><img src="{% static 'image/stock-vector-pixel-d-retro-font-video-computer-game-design-bit-letters-and-numbers-vector-alphabet-1197057835.jpg' %}" alt="Gallery Image 2"></div>
+    </div>
+    <div class="supported-by">
+        <p>Смотри нас здесь:</p>
+        <a href="https://www.youtube.com"><img src="{% static 'image/icons8-youtube-48.png' %}" alt="YouTube"></a>
+        <a href="https://www.twitch.tv"><img src="{% static 'image/icons8-twitch-48.png' %}" alt="Twitch"></a>
+    </div>
+    </footer>
+</body>
+</html>
